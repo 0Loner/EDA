@@ -1,0 +1,33 @@
+#include <iostream>
+using namespace std;
+
+int gVect[100];
+int gnCount=0; 
+
+void insert(int elem)
+ {
+    if(gnCount<100)
+  {
+      gVect[gnCount++]=elem;
+  }
+}
+
+void print(int arr[100])
+{
+  for(int i=0;i<100;i++)
+    {
+      cout<<gVect[i]<<endl;
+      if(gVect[i]==0)
+      {
+        break;
+      }
+    }
+}
+
+int main() {
+
+  insert(5);
+  insert(6);
+  insert(8);
+  print(gVect);
+}
