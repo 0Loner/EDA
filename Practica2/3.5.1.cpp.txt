@@ -1,0 +1,24 @@
+#include <iostream>
+#include<vector>
+#include<list>
+#include<iterator>
+
+using namespace std;
+
+
+template<typename Container> void Write(Container &ds, ostream &os)
+{
+  for(auto it=ds.begin();it != ds.end() ;it++)
+    {
+      os<<*it<<" ";
+    }
+}
+
+
+int main() {
+  list<int> l1;
+  l1.push_back(5);
+  l1.push_back(6);
+  Write(l1,cout);
+  return 0;
+}

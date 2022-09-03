@@ -1,0 +1,46 @@
+#include <iostream>
+#include <iterator>
+#include <list>
+#include <vector>
+
+using namespace std;
+
+class CMyCompleteDataStructure {
+  vector<float> m_container;
+
+public:
+  void insert(float fVal) { m_container.push_back(fVal); }
+  template <typename objclass> 
+  void sumone(objclass funobj) {
+  for (auto iter=m_container.begin() ; iter != m_container.end(); iter++) 
+    {
+      funobj(*iter);
+    }
+  }
+  void print(){
+    for(auto iter=m_container.begin();iter!=m_container.end();iter++)
+      {
+        cout<<*iter<<" ";
+      }
+  }
+};
+
+template <typename objclass> class funcobjclass {
+public:
+  void operator()(objclass &objinstance) { objinstance++; }
+};
+
+
+
+int main() {
+  CMyCompleteDataStructure ds;
+  ds.insert(3.5);
+  ds.insert(4.5);
+  ds.insert(6.5);
+  ds.insert(3.9);
+
+  funcobjclass<float> x;
+  ds.sumone(x);
+  ds.print();
+  return 0;
+}g
