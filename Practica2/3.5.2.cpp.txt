@@ -43,4 +43,4 @@ int main() {
   ds.sumone(x);
   ds.print();
   return 0;
-}g
+}
