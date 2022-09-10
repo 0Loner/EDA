@@ -1,0 +1,70 @@
+#include <iostream>
+#include <vector>
+#include <iomanip>
+#include<stdlib.h>
+#include<time.h>
+#include <cmath>
+
+
+using std::cout; using std::endl;
+using std::vector; using std::copy;
+
+/*
+class cPoint{
+public:
+int x,y,z;
+cPoint(){
+  x=1+rand()%(101-1);
+  y=1+rand()%(101-1);
+  z=1+rand()%(101-1);
+  }
+};
+
+vector<cPoint> hundredPoints;
+
+int distance(cPoint x,cPoint y){
+  return sqrt(pow((x.x-y.x),2)+pow((x.y-y.y),2)+pow((x.z-y.z),2));
+}
+*/
+
+double calculateDistance(std::pair<int, int> &x, std::pair<int, int> &y)
+{
+    return sqrt(pow(x.first - y.first, 2) +
+                pow(x.second - y.second, 2));
+}
+
+
+/*
+double calculateDistance2(std::tuple<int,int,int> &x, std::tuple<int,int,int> &y)
+{
+   return sqrt(pow((x.first-x.second),2)+pow((y.first-y.second),2)+pow((x.third-                  y.third),2));
+}
+*/
+
+double calculateDistance(std::pair<double, double> &x, std::pair<double, double> &y)
+{
+    return sqrt(pow(x.first - y.first, 2) +
+                pow(x.second - y.second, 2));
+}
+
+int printDistance(){
+  
+}
+
+int main() {
+    vector<std::pair<int, int>> vec =
+                                { {3, 4},
+                                {4, 3}, };
+
+    vector<std::tuple<int,int,int>> vec1;
+    for(int i=0;i<100;i++)
+      {
+         vec1.push_back({1+rand()%(101-1),1+rand()%(101-1),1+rand()%(101-1)});
+      }
+    //cout << "Distancia entre puntos (" << 
+    cout << "Distance between points (" << vec[0].first << ", "
+        << vec[0].second << ") and ("  << vec[1].first << ", "
+        << vec[1].second << ") is " << calculateDistance(vec[0], vec[1]) << endl;
+
+    return 0;
+}
